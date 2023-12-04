@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+
+public class Principal {
+
+    public static void main(String[] args) {
+        // Crear instancia del parqueadero
+        Parqueadero parqueadero = new Parqueadero();
+
+        // Ejemplo de uso
+        parqueadero.entrarCarro("ABC123");
+        parqueadero.avanzarHora();
+        parqueadero.sacarCarro("ABC123");
+        parqueadero.cambiarTarifa(1500);
+
+        // Realizar otras operaciones y pruebas según sea necesario
+
+        // Ejemplos de uso de los nuevos métodos
+        System.out.println("Tiempo promedio en el parqueadero: " + parqueadero.darTiempoPromedio());
+        System.out.println("¿Hay carro en el parqueadero por más de 8 horas? " + parqueadero.hayCarroMasDeOchoHoras());
+
+        // Mostrar información de carros parqueados por más de 3 horas
+        System.out.println("Carros parqueados por más de 3 horas:");
+        ArrayList<Carro> carrosMasDeTresHoras = parqueadero.darCarrosMasDeTresHorasParqueados();
+        for (Carro carro : carrosMasDeTresHoras) {
+            System.out.println("Placa: " + carro.darPlaca() + ", Tiempo en parqueadero: " + carro.darTiempoEnParqueadero(parqueadero.darHoraActual()) + " horas");
+        }
+
+        System.out.println("¿Hay carros con placas iguales? " + parqueadero.hayCarrosPlacaIgual());
+        System.out.println("Cantidad de carros con placa PB: " + parqueadero.contarCarrosQueComienzanConPlacaPB());
+        System.out.println("¿Hay carro parqueado por 24 o más horas? " + parqueadero.hayCarroCon24Horas());
+        System.out.println(parqueadero.metodo1());
+        System.out.println(parqueadero.metodo2());
+        System.out.println("Cantidad de carros sacados: " + parqueadero.desocuparParqueadero());
+    }
+}
